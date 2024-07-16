@@ -41,6 +41,12 @@ export default function FactArea({ selectedCountry, facts }) {
               <TableCell className={styles.tableHeadCell}>Population</TableCell>
               <TableCell className={styles.tableHeadCell}>Region</TableCell>
               <TableCell className={styles.tableHeadCell}>Subregion</TableCell>
+              <TableCell className={styles.tableHeadCell}>
+                Google Maps
+              </TableCell>
+              <TableCell className={styles.tableHeadCell}>
+                OpenStreetMap
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -59,6 +65,32 @@ export default function FactArea({ selectedCountry, facts }) {
               </TableCell>
               <TableCell className={styles.tableCell}>
                 {facts.subregion ?? "N/A"}
+              </TableCell>
+              <TableCell className={styles.tableCell}>
+                {facts.maps?.googleMaps ? (
+                  <a
+                    href={facts.maps.googleMaps}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View Map
+                  </a>
+                ) : (
+                  "N/A"
+                )}
+              </TableCell>
+              <TableCell className={styles.tableCell}>
+                {facts.maps?.openStreetMaps ? (
+                  <a
+                    href={facts.maps.openStreetMaps}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View Map
+                  </a>
+                ) : (
+                  "N/A"
+                )}
               </TableCell>
             </TableRow>
           </TableBody>
