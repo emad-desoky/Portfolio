@@ -3,7 +3,8 @@ import { Typography } from "@mui/material";
 import SelectArea from "./SelectArea";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { common } from "@mui/material/colors";
+import FactArea from "./FactArea";
+
 const regions = [
   "Oceania",
   "Europe",
@@ -16,14 +17,24 @@ export default function CountryExplorer() {
   const [selectedRegion, setSelectedRegion] = useState("");
   const [selectedCountry, setSelectedCountry] = useState("");
   const [countries, setCountries] = useState([]);
+  const [country, setCountry] = useState("");
 
   useEffect(() => {
-    axios
-      .get(`https://restcountries.com/v3.1/region/${selectedRegion}`)
-      .then((res) =>
-        setCountries(res.data.map((country) => country.name.common))
-      )
-      .catch((e) => console.log(e));
+    if (selectedCountry)
+      axios
+        .get(`https://restcountries.com/v3.1/name/${selectedCountry}`)
+        .then((res) => setCountry(res.data))
+        .catch((e) => console.log(e));
+  }, [selectedCountry]);
+
+  useEffect(() => {
+    if (selectedRegion)
+      axios
+        .get(`https://restcountries.com/v3.1/region/${selectedRegion}`)
+        .then((res) =>
+          setCountries(res.data.map((country) => country.name.common))
+        )
+        .catch((e) => console.log(e));
   }, [selectedRegion]);
 
   const handleChangeRegion = (event) => {
@@ -40,12 +51,15 @@ export default function CountryExplorer() {
         handleChange={handleChangeRegion}
         selectedItem={selectedRegion}
         items={regions}
+        title={"Regions"}
       />
       <SelectArea
         items={countries}
         selectedItem={selectedCountry}
         handleChange={handleChangeCountry}
+        title={"Countries"}
       />
+      <FactArea selectedCountry={selectedCountry} facts={country[0]} />
     </>
   );
 }

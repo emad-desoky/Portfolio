@@ -1,0 +1,47 @@
+.factArea {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .factTitle {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .flagImage {
+    max-width: 100px;
+    margin-bottom: 20px;
+  }
+  
+  .tableContainer {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .tableHead {
+    background-color: #1976d2; /* MUI primary color */
+  }
+  
+  .tableHeadCell {
+    color: white;
+    font-weight: bold;
+  }
+  
+  .tableRow {
+    &:nth-of-type(odd) {
+      background-color: #f5f5f5;
+    }
+    &:hover {
+      background-color: #e0f7fa; /* Light cyan background on hover */
+    }
+  }
+  
+  .tableCell {
+    padding: 16px;
+  }
+  

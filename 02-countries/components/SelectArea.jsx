@@ -1,10 +1,21 @@
 import { FormControl, InputLabel, Select, MenuItem } from "@mui/material";
 import { v4 } from "uuid";
-export default function SelectArea({ selectedItem, handleChange, items }) {
+import classes from "./SelectArea.module.css";
+export default function SelectArea({
+  selectedItem,
+  handleChange,
+  items,
+  title,
+}) {
   return (
     <>
-      <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">Region</InputLabel>
+      <FormControl fullWidth className={classes.formControl}>
+        <InputLabel
+          id="demo-simple-select-label"
+          className={classes.inputLabel}
+        >
+          Select a {title}
+        </InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
@@ -14,7 +25,7 @@ export default function SelectArea({ selectedItem, handleChange, items }) {
         >
           {items &&
             items.map((r) => (
-              <MenuItem key={v4()} value={r}>
+              <MenuItem key={v4()} value={r} className={classes.menuItem}>
                 {r}
               </MenuItem>
             ))}
