@@ -2,7 +2,7 @@
 
 import { Typography } from "@mui/material";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./index.module.css";
 
 export default function AnimeDetails() {
