@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 import styles from "./index.module.css";
 
-export default function index() {
+export default function AnimeDetails() {
   const router = useRouter();
   const { id } = router.query; // Get the id from the query parameters
   const [animes, setAnimes] = useState(
