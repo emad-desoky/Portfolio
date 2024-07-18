@@ -12,26 +12,27 @@ export default function AnimeWorld() {
   const [animeShows, setAnimeShows] = useState([]);
 
   useEffect(() => {
-    const storedAnimeShows = localStorage.getItem("animeShows");
+    if (typeof window !== "undefined") {
+      const storedAnimeShows = localStorage.getItem("animeShows");
 
-    if (storedAnimeShows) {
-      // If data is found in local storage, update the state and set loading to false
-      setAnimeShows(JSON.parse(storedAnimeShows));
-    } else {
-      axios
-        .get(
-          "https://gist.githubusercontent.com/abdalabaaji/8a4c9f9aabddbab384693f746dfeab46/raw/ea2497811bc355bb737b5d8630a36bee7cbab303/animes.json"
-        )
-        .then((res) => {
-          setAnimeShows(res.data); // Update state with fetched data
-          localStorage.setItem("animeShows", JSON.stringify(res.data)); // Save data to local storage
-        })
-        .catch((e) => {
-          console.log(e);
-        });
+      if (storedAnimeShows) {
+        // If data is found in local storage, update the state and set loading to false
+        setAnimeShows(JSON.parse(storedAnimeShows));
+      } else {
+        axios
+          .get(
+            "https://gist.githubusercontent.com/abdalabaaji/8a4c9f9aabddbab384693f746dfeab46/raw/ea2497811bc355bb737b5d8630a36bee7cbab303/animes.json"
+          )
+          .then((res) => {
+            setAnimeShows(res.data); // Update state with fetched data
+            localStorage.setItem("animeShows", JSON.stringify(res.data)); // Save data to local storage
+          })
+          .catch((e) => {
+            console.log(e);
+          });
+      }
     }
   }, []);
-
   return (
     <div className={styles.fadeIn}>
       <Typography variant="h1">AnimeWorld</Typography>

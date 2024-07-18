@@ -8,9 +8,15 @@ import styles from "./index.module.css";
 export default function AnimeDetails() {
   const router = useRouter();
   const { id } = router.query; // Get the id from the query parameters
-  const [animes, setAnimes] = useState(
-    JSON.parse(localStorage.getItem("animeShows")) || []
-  );
+  const [animes, setAnimes] = useState([]);
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const storedAnimeShows = localStorage.getItem("animeShows");
+      if (storedAnimeShows) {
+        setAnimes(JSON.parse(storedAnimeShows));
+      }
+    }
+  }, []);
 
   return (
     <div className={styles.container}>
