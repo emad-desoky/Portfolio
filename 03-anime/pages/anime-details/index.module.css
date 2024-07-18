@@ -34,7 +34,6 @@
 
 .animeRating {
   font-size: 1.2em;
-  color: #777;
   margin-top: 10px;
   animation: fadeIn 2s ease-in-out;
 }
