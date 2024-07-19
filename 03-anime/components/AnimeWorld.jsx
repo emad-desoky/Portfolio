@@ -14,7 +14,7 @@ export default function AnimeWorld() {
   useEffect(() => {
     if (typeof window !== "undefined") {
       const storedAnimeShows = JSON.parse(localStorage.getItem("animeShows"));
-      if (storedAnimeShows.length) {
+      if (storedAnimeShows && storedAnimeShows.length) {
         // If data is found in local storage, update the state and set loading to false
         setAnimeShows(storedAnimeShows);
       } else {
