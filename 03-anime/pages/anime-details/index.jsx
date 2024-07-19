@@ -1,5 +1,5 @@
 "use client";
-
+import Button from "@mui/material/Button";
 import { Typography } from "@mui/material";
 import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
@@ -19,29 +19,33 @@ export default function AnimeDetails() {
   }, []);
 
   return (
-    <div className={styles.container}>
-      {animes
-        .filter((anime) => anime.mal_id == id)
-        .map((anime) => {
-          return (
-            <>
-              <Typography className={styles.animeTitle} variant="h4">
-                {" "}
-                {anime.title}
-              </Typography>
-              <img
-                className={styles.animeImage}
-                src={anime.images.jpg.large_image_url}
-              />
-              <Typography className={styles.animeRating} variant="h6">
-                {anime.rating}
-              </Typography>
-              <Typography className={styles.animeSynopsis}>
-                {anime.synopsis}
-              </Typography>
-            </>
-          );
-        })}
-    </div>
+    <>
+      <Button onClick={() => router.back()}>Back</Button>
+
+      <div className={styles.container}>
+        {animes
+          .filter((anime) => anime.mal_id == id)
+          .map((anime) => {
+            return (
+              <>
+                <Typography className={styles.animeTitle} variant="h4">
+                  {" "}
+                  {anime.title}
+                </Typography>
+                <img
+                  className={styles.animeImage}
+                  src={anime.images.jpg.large_image_url}
+                />
+                <Typography className={styles.animeRating} variant="h6">
+                  {anime.rating}
+                </Typography>
+                <Typography className={styles.animeSynopsis}>
+                  {anime.synopsis}
+                </Typography>
+              </>
+            );
+          })}
+      </div>
+    </>
   );
 }

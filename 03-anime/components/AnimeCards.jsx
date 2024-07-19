@@ -11,8 +11,9 @@ import { useRouter } from "next/router";
 import styles from "./AnimeWorld.module.css";
 import { IconButton } from "@mui/material";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import DeleteIcon from "@mui/icons-material/Delete";
 
-export default function AnimeCards({ animeShow }) {
+export default function AnimeCards({ animeShow, handleAnimeDelete }) {
   const router = useRouter();
 
   const displayAnimeDetails = (id) => {
@@ -57,6 +58,13 @@ export default function AnimeCards({ animeShow }) {
             onClick={() => displayAnimeDetails()}
           >
             <MoreHorizIcon />
+          </IconButton>
+          <IconButton
+            onClick={() => handleAnimeDelete(animeShow.mal_id)}
+            aria-label="delete"
+            size="large"
+          >
+            <DeleteIcon fontSize="inherit" />
           </IconButton>
         </CardActions>
       </Card>

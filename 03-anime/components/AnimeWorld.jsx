@@ -13,11 +13,10 @@ export default function AnimeWorld() {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const storedAnimeShows = localStorage.getItem("animeShows");
-
-      if (storedAnimeShows) {
+      const storedAnimeShows = JSON.parse(localStorage.getItem("animeShows"));
+      if (storedAnimeShows.length) {
         // If data is found in local storage, update the state and set loading to false
-        setAnimeShows(JSON.parse(storedAnimeShows));
+        setAnimeShows(storedAnimeShows);
       } else {
         axios
           .get(
@@ -33,6 +32,13 @@ export default function AnimeWorld() {
       }
     }
   }, []);
+  const handleAnimeDelete = (id) => {
+    setAnimeShows((prev) => {
+      const newArr = prev.filter((p) => p.mal_id !== id);
+      localStorage.setItem("animeShows", JSON.stringify(newArr));
+      return newArr;
+    });
+  };
   return (
     <div className={styles.fadeIn}>
       <Typography variant="h1">AnimeWorld</Typography>
@@ -40,7 +46,13 @@ export default function AnimeWorld() {
         <Grid container className={styles.grid}>
           {animeShows &&
             animeShows.map((anime) => {
-              return <AnimeCards key={anime.mal_id} animeShow={anime} />;
+              return (
+                <AnimeCards
+                  key={anime.mal_id}
+                  animeShow={anime}
+                  handleAnimeDelete={() => handleAnimeDelete(anime.mal_id)}
+                />
+              );
             })}
         </Grid>
       </Container>
