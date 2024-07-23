@@ -1,0 +1,69 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(50deg, #4b4c4c, #141314);
+    background-blend-mode: overlay;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+
+  }
+  
+  .formContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    animation: fadeIn 0.7s ease-in-out;
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  .inputField {
+    margin-bottom: 20px;
+    width: 100%;
+    transition: transform 0.2s;
+  }
+  
+  .inputField:hover {
+    transform: scale(1.02);
+  }
+  
+  .submitButton {
+    background-color: #5a67d8;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .submitButton:hover {
+    background-color: #434190;
+    transform: scale(1.05);
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
