@@ -55,7 +55,7 @@ export default function AdminPanel() {
   };
 
   return (
-    <Container sx={{ backgroundColor: "red" }} className={styles.container}>
+    <Container className={styles.container}>
       <Typography variant="h1" className={styles.header}>
         Appointments Details
       </Typography>

@@ -6,9 +6,9 @@ import Joinus from "@/components/joinus/Joinus";
 
 export default function Home() {
   return (
-    <>
+    <div>
       <Joinus />
-      <div></div>
-    </>
+      <div>hello</div>
+    </div>
   );
 }
