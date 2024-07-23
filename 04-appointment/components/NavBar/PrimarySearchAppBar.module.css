@@ -1,0 +1,79 @@
+.appBar {
+  background: linear-gradient(135deg, #007acc 0%, #005f9e 50%, #003d66 100%);
+  box-shadow: 0 4px 12px rgba(0, 122, 204, 0.3); /* Enhanced shadow */
+  z-index: 1200; /* Ensure the app bar is above other content */
+  transition: background 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+  padding: 0 20px; /* Add some padding */
+}
+
+.toolbar {
+  padding: 0 16px; /* Add some padding */
+  display: flex;
+  justify-content: space-between; /* Distribute space between items */
+  align-items: center; /* Center items vertically */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.rightItems {
+  display: flex;
+  align-items: center;
+  gap: 2rem; /* Adjust space between items */
+}
+
+.navItems {
+  display: flex;
+  gap: 1.5rem; /* Space between navigation buttons */
+}
+
+.navButton {
+  color: white;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navButton:hover {
+  color: #b7eaecb3; /* Highlight color on hover */
+  transform: scale(1.1); /* Slightly enlarge button on hover */
+}
+
+.authButtons {
+  display: flex;
+  gap: 1rem; /* Space between auth buttons */
+}
+
+.authButton {
+  color: white;
+  border-color: white;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.authButton:hover {
+  color: #c8e3ea; /* Highlight color on hover */
+  border-color: #dcdcdeee; /* Change border color on hover */
+}
+
+.menuIcon {
+  display: none; /* Hide the menu icon by default */
+  font-size: 2rem;
+  cursor: pointer;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .navItems {
+    display: none; /* Hide navigation items on smaller screens */
+  }
+
+  .menuIcon {
+    display: block; /* Show the menu icon on smaller screens */
+  }
+}
+
+@media (max-width: 576px) {
+  .authButtons {
+    display: none; /* Hide auth buttons on extra small screens */
+  }
+}

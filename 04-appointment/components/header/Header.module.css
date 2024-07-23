@@ -1,0 +1,108 @@
+.headerContainer {
+  position: relative;
+  height: 100vh; /* Full viewport height */
+  width: 100%; /* Full viewport width */
+  overflow: hidden; /* Hide overflow to keep the image within bounds */
+}
+
+.imageContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the image covers the container */
+  animation: zoomIn 1.5s ease-in-out; /* Animation for image */
+}
+
+.infoContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* Center the text horizontally */
+  color: rgb(11, 11, 11); /* Dark text color for contrast */
+  text-align: center; /* Center-align text */
+  background: rgba(255, 255, 255, 0.9); /* Brighter semi-transparent background */
+  padding: 20px; /* Increase padding for more space */
+  border-radius: 10px;
+  animation: fadeIn 1.5s ease-in-out; /* Animation for container */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow for depth */
+}
+
+.bookNowButton {
+  background-color: #007acc; /* Button color */
+  color: white;
+  font-size: 1.2rem;
+  padding: 12px 24px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 122, 204, 0.3);
+  margin-top: 20px; /* Add space above the button */
+}
+
+.bookNowButton:hover {
+  background-color: #005f9e; /* Darker shade on hover */
+  transform: scale(1.1); /* Slightly enlarge button on hover */
+}
+
+.infoText {
+  font-size: 2rem; /* Adjust text size */
+  font-weight: bold;
+  margin-bottom: 20px; /* Space between text and button */
+  opacity: 1; /* Ensure text is visible */
+  animation: fadeIn 1.5s ease-in-out; /* Animation for text */
+  transition: opacity 0.5s ease; /* Smooth transition */
+  line-height: 1.5; /* Better line spacing for readability */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add a shadow for text depth */
+}
+
+@media (max-width: 768px) {
+  .infoText {
+    font-size: 1.5rem; /* Smaller text size for tablets */
+  }
+
+  .infoContainer {
+    padding: 15px; /* Adjust padding for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .infoText {
+    font-size: 1.2rem; /* Smaller text size for mobile */
+  }
+
+  .bookNowButton {
+    font-size: 1rem; /* Smaller button text size for mobile */
+    padding: 10px 20px; /* Adjust button padding for mobile */
+  }
+
+  .infoContainer {
+    padding: 10px; /* Adjust padding for mobile */
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
