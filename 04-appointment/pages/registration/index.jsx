@@ -19,6 +19,7 @@ import {
 } from "@mui/material";
 import styles from "./RegistrationForm.module.css";
 import { useRouter } from "next/router";
+import ClinicNavBar from "@/components/NavBar/ClinicNavBar";
 
 const imageDetails = [
   {
@@ -90,226 +91,229 @@ export default function RegistrationForm() {
   };
 
   return (
-    <div className={styles.pageContainer}>
-      <div className={styles.formContainer}>
-        <Container maxWidth="sm">
-          <Paper className={styles.form} elevation={3}>
-            <Typography
-              className={styles.title}
-              variant="h4"
-              component="h1"
-              gutterBottom
-              align="center"
-            >
-              Registration
-            </Typography>
-            <form onSubmit={onSubmitHandle}>
-              <FormControl fullWidth variant="outlined" margin="normal">
-                <InputLabel>Role</InputLabel>
-                <Select
-                  value={role}
-                  onChange={onRoleChange}
-                  label="Role"
-                  name="Role"
-                >
-                  <MenuItem value="Patient">Patient</MenuItem>
-                  <MenuItem value="Doctor">Doctor</MenuItem>
-                  <MenuItem value="Admin">Admin</MenuItem>
-                </Select>
-              </FormControl>
+    <>
+      <ClinicNavBar />
+      <div className={styles.pageContainer}>
+        <div className={styles.formContainer}>
+          <Container maxWidth="sm">
+            <Paper className={styles.form} elevation={3}>
+              <Typography
+                className={styles.title}
+                variant="h4"
+                component="h1"
+                gutterBottom
+                align="center"
+              >
+                Registration
+              </Typography>
+              <form onSubmit={onSubmitHandle}>
+                <FormControl fullWidth variant="outlined" margin="normal">
+                  <InputLabel>Role</InputLabel>
+                  <Select
+                    value={role}
+                    onChange={onRoleChange}
+                    label="Role"
+                    name="Role"
+                  >
+                    <MenuItem value="Patient">Patient</MenuItem>
+                    <MenuItem value="Doctor">Doctor</MenuItem>
+                    <MenuItem value="Admin">Admin</MenuItem>
+                  </Select>
+                </FormControl>
 
-              {/* Conditional Fields */}
-              {role === "Patient" && (
-                <>
-                  <TextField
-                    name="patientUsername"
-                    label="Patient Username"
-                    variant="outlined"
-                    required
-                    fullWidth
-                    margin="normal"
-                  />
-                  <TextField
-                    name="password"
-                    label="Password"
-                    type="password"
-                    variant="outlined"
-                    required
-                    fullWidth
-                    margin="normal"
-                  />
-                  <TextField
-                    name="email"
-                    label="Email"
-                    type="email"
-                    variant="outlined"
-                    required
-                    fullWidth
-                    margin="normal"
-                  />
-                  <TextField
-                    name="phone"
-                    label="Phone Number"
-                    variant="outlined"
-                    required
-                    fullWidth
-                    margin="normal"
-                  />
-                  <TextField
-                    name="age"
-                    label="Age"
-                    variant="outlined"
-                    required
-                    fullWidth
-                    margin="normal"
-                  />
-                  <TextField
-                    name="heardAboutUs"
-                    label="Where did you hear about us?"
-                    variant="outlined"
-                    required
-                    fullWidth
-                    margin="normal"
-                  />
-                  <TextField
-                    name="dentalHistory"
-                    label="Dental History"
-                    variant="outlined"
-                    required
-                    fullWidth
-                    margin="normal"
-                    multiline
-                    rows={4}
-                  />
-                </>
-              )}
-              {role === "Doctor" && (
-                <>
-                  <TextField
-                    name="doctorUsername"
-                    label="Doctor Username"
-                    variant="outlined"
-                    required
-                    fullWidth
-                    margin="normal"
-                  />
-                  <TextField
-                    name="email"
-                    label="Email"
-                    type="email"
-                    variant="outlined"
-                    required
-                    fullWidth
-                    margin="normal"
-                  />
-                  <TextField
-                    name="phone"
-                    label="Phone Number"
-                    variant="outlined"
-                    required
-                    fullWidth
-                    margin="normal"
-                  />
-                  <TextField
-                    name="password"
-                    label="Password"
-                    type="password"
-                    variant="outlined"
-                    required
-                    fullWidth
-                    margin="normal"
-                  />
-                </>
-              )}
-              {role === "Admin" && (
-                <>
-                  <TextField
-                    name="username"
-                    label="Username"
-                    variant="outlined"
-                    required
-                    fullWidth
-                    margin="normal"
-                  />
-                  <TextField
-                    name="email"
-                    label="Email"
-                    type="email"
-                    variant="outlined"
-                    required
-                    fullWidth
-                    margin="normal"
-                  />
-                  <TextField
-                    name="password"
-                    label="Password"
-                    type="password"
-                    variant="outlined"
-                    required
-                    fullWidth
-                    margin="normal"
-                  />
-                  <TextField
-                    name="phone"
-                    label="Phone Number"
-                    variant="outlined"
-                    required
-                    fullWidth
-                    margin="normal"
-                  />
-                </>
-              )}
-              <Button
-                type="submit"
-                variant="contained"
-                color="primary"
-                fullWidth
-                disabled={loading}
-              >
-                {loading ? (
-                  <CircularProgress size={24} color="inherit" />
-                ) : (
-                  "Submit"
+                {/* Conditional Fields */}
+                {role === "Patient" && (
+                  <>
+                    <TextField
+                      name="patientUsername"
+                      label="Patient Username"
+                      variant="outlined"
+                      required
+                      fullWidth
+                      margin="normal"
+                    />
+                    <TextField
+                      name="password"
+                      label="Password"
+                      type="password"
+                      variant="outlined"
+                      required
+                      fullWidth
+                      margin="normal"
+                    />
+                    <TextField
+                      name="email"
+                      label="Email"
+                      type="email"
+                      variant="outlined"
+                      required
+                      fullWidth
+                      margin="normal"
+                    />
+                    <TextField
+                      name="phone"
+                      label="Phone Number"
+                      variant="outlined"
+                      required
+                      fullWidth
+                      margin="normal"
+                    />
+                    <TextField
+                      name="age"
+                      label="Age"
+                      variant="outlined"
+                      required
+                      fullWidth
+                      margin="normal"
+                    />
+                    <TextField
+                      name="heardAboutUs"
+                      label="Where did you hear about us?"
+                      variant="outlined"
+                      required
+                      fullWidth
+                      margin="normal"
+                    />
+                    <TextField
+                      name="dentalHistory"
+                      label="Dental History"
+                      variant="outlined"
+                      required
+                      fullWidth
+                      margin="normal"
+                      multiline
+                      rows={4}
+                    />
+                  </>
                 )}
-              </Button>
-              <Button
-                onClick={() => router.push("/login")}
-                variant="outlined"
-                color="secondary"
-                fullWidth
-              >
-                Cancel
-              </Button>
-            </form>
-          </Paper>
-        </Container>
-      </div>
-      <div className={styles.carouselContainer}>
-        <Card className={`${styles.carouselCard} ${styles[fade]}`}>
-          <img
-            src={imageDetails[currentIndex].src}
-            alt={`Image ${currentIndex + 1}`}
-            className={`${styles.carouselImage} ${styles[fade]}`}
-          />
-          <CardContent className={styles.imageText}>
-            <Typography variant="caption" align="center">
-              {imageDetails[currentIndex].text}
-            </Typography>
-          </CardContent>
-        </Card>
-      </div>
-      <Snackbar
-        open={openSnackbar}
-        autoHideDuration={6000}
-        onClose={() => setOpenSnackbar(false)}
-      >
-        <Alert
+                {role === "Doctor" && (
+                  <>
+                    <TextField
+                      name="doctorUsername"
+                      label="Doctor Username"
+                      variant="outlined"
+                      required
+                      fullWidth
+                      margin="normal"
+                    />
+                    <TextField
+                      name="email"
+                      label="Email"
+                      type="email"
+                      variant="outlined"
+                      required
+                      fullWidth
+                      margin="normal"
+                    />
+                    <TextField
+                      name="phone"
+                      label="Phone Number"
+                      variant="outlined"
+                      required
+                      fullWidth
+                      margin="normal"
+                    />
+                    <TextField
+                      name="password"
+                      label="Password"
+                      type="password"
+                      variant="outlined"
+                      required
+                      fullWidth
+                      margin="normal"
+                    />
+                  </>
+                )}
+                {role === "Admin" && (
+                  <>
+                    <TextField
+                      name="username"
+                      label="Username"
+                      variant="outlined"
+                      required
+                      fullWidth
+                      margin="normal"
+                    />
+                    <TextField
+                      name="email"
+                      label="Email"
+                      type="email"
+                      variant="outlined"
+                      required
+                      fullWidth
+                      margin="normal"
+                    />
+                    <TextField
+                      name="password"
+                      label="Password"
+                      type="password"
+                      variant="outlined"
+                      required
+                      fullWidth
+                      margin="normal"
+                    />
+                    <TextField
+                      name="phone"
+                      label="Phone Number"
+                      variant="outlined"
+                      required
+                      fullWidth
+                      margin="normal"
+                    />
+                  </>
+                )}
+                <Button
+                  type="submit"
+                  variant="contained"
+                  color="primary"
+                  fullWidth
+                  disabled={loading}
+                >
+                  {loading ? (
+                    <CircularProgress size={24} color="inherit" />
+                  ) : (
+                    "Submit"
+                  )}
+                </Button>
+                <Button
+                  onClick={() => router.push("/login")}
+                  variant="outlined"
+                  color="secondary"
+                  fullWidth
+                >
+                  Cancel
+                </Button>
+              </form>
+            </Paper>
+          </Container>
+        </div>
+        <div className={styles.carouselContainer}>
+          <Card className={`${styles.carouselCard} ${styles[fade]}`}>
+            <img
+              src={imageDetails[currentIndex].src}
+              alt={`Image ${currentIndex + 1}`}
+              className={`${styles.carouselImage} ${styles[fade]}`}
+            />
+            <CardContent className={styles.imageText}>
+              <Typography variant="caption" align="center">
+                {imageDetails[currentIndex].text}
+              </Typography>
+            </CardContent>
+          </Card>
+        </div>
+        <Snackbar
+          open={openSnackbar}
+          autoHideDuration={6000}
           onClose={() => setOpenSnackbar(false)}
-          severity={snackbarSeverity}
         >
-          {snackbarMessage}
-        </Alert>
-      </Snackbar>
-    </div>
+          <Alert
+            onClose={() => setOpenSnackbar(false)}
+            severity={snackbarSeverity}
+          >
+            {snackbarMessage}
+          </Alert>
+        </Snackbar>
+      </div>
+    </>
   );
 }

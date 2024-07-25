@@ -28,6 +28,7 @@
   transition: transform 0.3s ease-in-out;
 }
 
+
 .carouselContainer {
   flex: 1; /* Take up remaining space */
   display: flex; /* Use flexbox for layout */
@@ -51,7 +52,7 @@
   opacity: 1; /* Initial opacity */
 }
 .carouselImage.fadeOut {
-  opacity: 0; /* Fade out effect */
+  opacity: .8; /* Fade out effect */
 }
 
 .carouselImage.fadeIn {
