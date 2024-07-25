@@ -65,6 +65,7 @@ export default function PrimarySearchAppBar() {
               Registration
             </Button>
             <Button
+              onClick={() => router.push("./login")}
               color="inherit"
               variant="outlined"
               className={styles.authButton}
