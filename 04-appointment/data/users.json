@@ -141,5 +141,13 @@
     "role": "doctor",
     "email": "qawas@asdfa.com",
     "id": "dd322da8-4d08-4e5b-b584-bba0dd303125"
+  },
+  {
+    "Role": "Patient",
+    "id": "57cad3ab-72ac-46e5-977c-355c09c9e843"
+  },
+  {
+    "Role": "Admin",
+    "id": "7001994b-ab6d-43ba-a838-589533c5a307"
   }
 ]

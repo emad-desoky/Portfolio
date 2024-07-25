@@ -1,9 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { v4 } from "uuid";
-import { TextField, Button } from "@mui/material";
+import {
+  TextField,
+  Button,
+  MenuItem,
+  Select,
+  FormControl,
+  InputLabel,
+  Typography,
+  Box,
+  Container,
+  Paper,
+} from "@mui/material";
+import styles from "./RegistrationForm.module.css";
 
 export default function RegistrationForm() {
+  const [role, setRole] = useState("");
+  const [formFields, setFormFields] = useState({});
+
+  const onRoleChange = (event) => {
+    setRole(event.target.value);
+    setFormFields({});
+  };
+
   const onSubmitHandle = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -17,36 +37,201 @@ export default function RegistrationForm() {
   };
 
   return (
-    <form onSubmit={onSubmitHandle}>
-      <div>index</div>
-      <TextField name="Username" label="Username" variant="outlined" required />
-      <TextField
-        name="Password"
-        label="Password"
-        type="password"
-        variant="outlined"
-        required
-      />
-      <TextField name="Age" label="Age" variant="outlined" required />
-      <TextField name="Gender" label="Gender" variant="outlined" required />
-      <TextField name="address" label="Address" variant="outlined" required />
-      <TextField
-        name="firstname"
-        label="Firstname"
-        variant="outlined"
-        required
-      />
-      <TextField name="lastname" label="Lastname" variant="outlined" required />
-      <TextField name="phone" label="Phone" variant="outlined" required />
-      <TextField name="role" label="Role" variant="outlined" required />
-      <TextField
-        name="email"
-        label="Email"
-        type="email"
-        variant="outlined"
-        required
-      />
-      <Button type="submit">SUBMIT</Button>
-    </form>
+    <Container maxWidth="sm">
+      <Paper className={styles.paper} elevation={3}>
+        <Typography variant="h4" component="h1" gutterBottom align="center">
+          Registration
+        </Typography>
+        <form onSubmit={onSubmitHandle} className={styles.form}>
+          <FormControl fullWidth variant="outlined" margin="normal">
+            <InputLabel>Role</InputLabel>
+            <Select
+              value={role}
+              onChange={onRoleChange}
+              label="Role"
+              name="Role"
+              className={styles.selectInput}
+            >
+              <MenuItem value="Patient">Patient</MenuItem>
+              <MenuItem value="Doctor">Doctor</MenuItem>
+              <MenuItem value="Admin">Admin</MenuItem>
+            </Select>
+          </FormControl>
+          {role === "Patient" && (
+            <>
+              <TextField
+                name="patientUsername"
+                label="Patient Username"
+                variant="outlined"
+                required
+                fullWidth
+                margin="normal"
+                className={styles.selectInput}
+              />
+              <TextField
+                name="password"
+                label="Password"
+                type="password"
+                variant="outlined"
+                required
+                fullWidth
+                margin="normal"
+                className={styles.selectInput}
+              />
+              <TextField
+                name="email"
+                label="Email"
+                type="email"
+                variant="outlined"
+                required
+                fullWidth
+                margin="normal"
+                className={styles.selectInput}
+              />
+              <TextField
+                name="phone"
+                label="Phone Number"
+                variant="outlined"
+                required
+                fullWidth
+                margin="normal"
+                className={styles.selectInput}
+              />
+              <TextField
+                name="age"
+                label="Age"
+                variant="outlined"
+                required
+                fullWidth
+                margin="normal"
+                className={styles.selectInput}
+              />
+              <TextField
+                name="heardAboutUs"
+                label="Where did you hear about us?"
+                variant="outlined"
+                required
+                fullWidth
+                margin="normal"
+                className={styles.selectInput}
+              />
+              <TextField
+                name="dentalHistory"
+                label="Dental History"
+                variant="outlined"
+                required
+                fullWidth
+                margin="normal"
+                multiline
+                rows={4}
+                className={styles.selectInput}
+              />
+            </>
+          )}
+          {role === "Doctor" && (
+            <>
+              <TextField
+                name="doctorUsername"
+                label="Doctor Username"
+                variant="outlined"
+                required
+                fullWidth
+                margin="normal"
+                className={styles.selectInput}
+              />
+              <TextField
+                name="email"
+                label="Email"
+                type="email"
+                variant="outlined"
+                required
+                fullWidth
+                margin="normal"
+                className={styles.selectInput}
+              />
+              <TextField
+                name="phone"
+                label="Phone Number"
+                variant="outlined"
+                required
+                fullWidth
+                margin="normal"
+                className={styles.selectInput}
+              />
+              <TextField
+                name="password"
+                label="Password"
+                type="password"
+                variant="outlined"
+                required
+                fullWidth
+                margin="normal"
+                className={styles.selectInput}
+              />
+            </>
+          )}
+          {role === "Admin" && (
+            <>
+              <TextField
+                name="username"
+                label="Username"
+                variant="outlined"
+                required
+                fullWidth
+                margin="normal"
+                className={styles.selectInput}
+              />
+              <TextField
+                name="email"
+                label="Email"
+                type="email"
+                variant="outlined"
+                required
+                fullWidth
+                margin="normal"
+                className={styles.selectInput}
+              />
+              <TextField
+                name="password"
+                label="Password"
+                type="password"
+                variant="outlined"
+                required
+                fullWidth
+                margin="normal"
+                className={styles.selectInput}
+              />
+              <TextField
+                name="phone"
+                label="Phone Number"
+                variant="outlined"
+                required
+                fullWidth
+                margin="normal"
+                className={styles.selectInput}
+              />
+            </>
+          )}
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+            fullWidth
+            className={styles.submitButton}
+          >
+            SUBMIT
+          </Button>
+          <Button
+            onClick={() => router.push("./Login")}
+            variant="contained"
+            color="secondary"
+            fullWidth
+            className={styles.submitButton}
+          >
+            LOGIN
+          </Button>
+        </form>
+      </Paper>
+    </Container>
   );
 }

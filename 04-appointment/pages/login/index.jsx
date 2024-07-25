@@ -8,14 +8,15 @@ import {
   Snackbar,
   Alert,
 } from "@mui/material";
-import { useRouter } from "next/router"; // Import useRouter hook
+import { useRouter } from "next/router";
+import styles from "./LoginForm.module.css";
 
 export default function LoginForm() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const [openSnackbar, setOpenSnackbar] = useState(false);
-  const router = useRouter(); // Initialize useRouter
+  const router = useRouter();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -52,22 +53,10 @@ export default function LoginForm() {
 
   return (
     <>
-      <Box
-        component="form"
-        onSubmit={handleSubmit}
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          gap: 2,
-          width: 300,
-          margin: "0 auto",
-          padding: 3,
-          border: "1px solid #ccc",
-          borderRadius: 2,
-        }}
-      >
-        <Typography variant="h5">Login</Typography>
+      <Box component="form" onSubmit={handleSubmit} className={styles.form}>
+        <Typography variant="h5" className={styles.title}>
+          Login
+        </Typography>
         <TextField
           label="Username"
           variant="outlined"
@@ -85,11 +74,21 @@ export default function LoginForm() {
           required
           fullWidth
         />
-        <Button variant="contained" color="primary" type="submit" fullWidth>
+        <Button
+          variant="contained"
+          color="primary"
+          type="submit"
+          fullWidth
+          className={styles.submitButton}
+        >
           Login
         </Button>
         {message && (
-          <Typography variant="body2" color="textSecondary">
+          <Typography
+            variant="body2"
+            color="textSecondary"
+            className={styles.message}
+          >
             {message}
           </Typography>
         )}

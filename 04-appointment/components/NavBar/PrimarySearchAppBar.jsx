@@ -6,15 +6,17 @@ import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import styles from "./PrimarySearchAppBar.module.css";
+import { useRouter } from "next/router";
 
 export default function PrimarySearchAppBar() {
+  const router = useRouter();
   return (
     <AppBar className={styles.appBar} position="fixed">
       <Toolbar className={styles.toolbar}>
         {/* Logo on the left */}
         <Box className={styles.logo}>
           <img
-            src="https://cdn.discordapp.com/attachments/715561417750741013/1265434470727684290/tooth-brush.png?ex=66a17f30&is=66a02db0&hm=889bb7852d0cded295a3d51f6cd0aa69e6ed7fb2ab74a7a4999997b16f8dd8e7&"
+            src={"./images/teeth.png"}
             alt="Dental Clinic Logo"
             width={70}
             height={70}
@@ -25,7 +27,11 @@ export default function PrimarySearchAppBar() {
         <Box className={styles.rightItems}>
           {/* Navigation items in the center */}
           <Box className={styles.navItems}>
-            <Button color="inherit" className={styles.navButton}>
+            <Button
+              onClick={() => router.push("./appointments")}
+              color="inherit"
+              className={styles.navButton}
+            >
               BOOK NOW
             </Button>
             <Button color="inherit" className={styles.navButton}>
@@ -51,6 +57,7 @@ export default function PrimarySearchAppBar() {
           {/* Registration and Login buttons on the right */}
           <Box className={styles.authButtons}>
             <Button
+              onClick={() => router.push("./registration")}
               color="inherit"
               variant="outlined"
               className={styles.authButton}

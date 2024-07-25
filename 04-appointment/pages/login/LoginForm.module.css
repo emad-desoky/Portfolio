@@ -1,0 +1,32 @@
+.form {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    max-width: 400px;
+    margin: auto;
+  }
+  
+  .title {
+    margin-bottom: 20px;
+  }
+  
+  .submitButton {
+    margin-top: 10px;
+    background: linear-gradient(45deg, #556cdc, #6a85d6);
+    color: white;
+  }
+  
+  .submitButton:hover {
+    background: linear-gradient(45deg, #6a85d6, #556cdc);
+  }
+  
+  .message {
+    margin-top: 10px;
+    color: #f44336;
+  }
+  
