@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
@@ -13,15 +13,16 @@ const infoSlides = [
 ];
 
 export default function Header() {
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentSlide, setCurrentSlide] = React.useState(0);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % infoSlides.length);
     }, 3000); // Change slide every 3 seconds
 
     return () => clearInterval(interval);
   }, []);
+
   const router = useRouter();
 
   return (
@@ -116,6 +117,71 @@ export default function Header() {
             </Button>
           </Box>
         </Box>
+      </Box>
+
+      <Box className={styles.visitUsSection}>
+        <Box className={styles.imagesContainer}>
+          <img
+            src="https://i.pinimg.com/564x/d3/6a/67/d36a676ab7805c355eddfadc0beab80a.jpg" // Replace with actual image URLs
+            alt="Dental Clinic 1"
+            className={styles.clinicImage}
+          />
+          <img
+            src="https://img.freepik.com/premium-photo/dental-treatment-room-with-sterilized-tools_933496-6663.jpg" // Replace with actual image URLs
+            alt="Dental Clinic 2"
+            className={styles.clinicImage}
+          />
+          <img
+            src="https://i0.wp.com/www.offthecusp.com/wp-content/uploads/2017/10/under-the-sea-themed-operatory.jpg" // Replace with actual image URLs
+            alt="Dental Clinic 3"
+            className={styles.clinicImage}
+          />
+          <img
+            src="https://blueappledentalgroup.com/wp-content/uploads/2023/06/header-home.jpg.webp" // Replace with actual image URLs
+            alt="Dental Clinic 4"
+            className={styles.clinicImage}
+          />
+        </Box>
+        <Box className={styles.textContainer}>
+          <Typography variant="h4" className={styles.visitUsTitle}>
+            Visit Us
+          </Typography>
+          <Typography variant="body1" className={styles.visitUsText}>
+            We’re conveniently located in the Denver Tech Center area. Find us
+            on the 4th floor of the Triad Office Park building. Plenty of free
+            parking available.
+          </Typography>
+          <Typography variant="body1" className={styles.visitUsAddress}>
+            5670 Greenwood Plaza Blvd., Suite 404
+            <br />
+            Greenwood Village, CO 80111
+          </Typography>
+          <Typography variant="body1" className={styles.visitUsHours}>
+            Monday–Thursday: 7AM–3PM
+          </Typography>
+          <Button
+            onClick={() =>
+              window.open(
+                "https://www.google.com/maps/place/5670+Greenwood+Plaza+Blvd,+Suite+404,+Greenwood+Village,+CO+80111",
+                "_blank"
+              )
+            }
+            className={styles.getDirectionsButton}
+          >
+            Get Directions
+          </Button>
+        </Box>
+      </Box>
+      <Box className={styles.mapContainer}>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3058.7401693454184!2d-104.89208368459286!3d39.60668177945741!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876c79950489b0f3%3A0x6a2a1d1e90cc0a67!2s5670%20Greenwood%20Plaza%20Blvd%2C%20Suite%20404%2C%20Greenwood%20Village%2C%20CO%2080111!5e0!3m2!1sen!2sus!4v1615924819167!5m2!1sen!2sus"
+          width="100%"
+          height="450"
+          style={{ border: 0 }}
+          allowFullScreen=""
+          loading="lazy"
+          title="Google Map"
+        ></iframe>
       </Box>
     </>
   );

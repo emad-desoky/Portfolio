@@ -203,3 +203,99 @@
   border-radius: 8px; /* Rounded corners for image */
   margin-bottom: 15px; /* Space below the image */
 }
+.visitUsSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 20px;
+  background-color: #f5f5f5;
+}
+
+.imagesContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Create two equal columns */
+  grid-template-rows: repeat(2, 1fr); /* Create two equal rows */
+  gap: 20px; /* Space between images */
+}
+
+.clinicImage {
+  width: 100%;
+  height: 100%;
+  max-width: 300px; /* Fixed size to maintain square aspect */
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease; /* Add a transition effect */
+}
+.clinicImage:hover {
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.textContainer {
+  width: 90%; /* Adjust width to fit content */
+  max-width: 600px;
+  
+}
+
+
+.visitUsTitle {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.visitUsText {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+.visitUsAddress {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.visitUsHours {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.getDirectionsButton {
+  background-color: #007acc;
+  color: #ffffff;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.getDirectionsButton:hover {
+  background-color: #005f9e;
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .visitUsSection {
+    flex-direction: column; /* Stack text and images vertically on smaller screens */
+    align-items: center;
+  }
+
+  .imagesContainer {
+    display: flex;
+    flex-direction: column; /* Stack images vertically */
+    gap: 20px; /* Space between images */
+    width: 50%; /* Adjust width to fit content */
+    animation: slideIn 1.5s ease-out; /* Add animation */
+  }
+}
+.mapContainer {
+  width: 100%;
+  height: 450px;
+}
+
+.visitUsSection {
+  display: flex;
+  flex-direction: row; /* Arrange text and images side-by-side */
+  padding: 30px 20px; /* Adjust padding as needed */
+  background-color: #f5f5f5;
+  gap: 100px; /* Space between the image and text */
+  position: relative;
+}
