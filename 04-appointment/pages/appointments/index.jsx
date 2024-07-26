@@ -1,4 +1,5 @@
 import Form from "@/components/appointment/Form";
+import Footer from "@/components/footer/Footer";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { userAgent, userAgentFromString } from "next/server";
@@ -16,7 +17,7 @@ export default function Appointments() {
   return (
     <>
       <Form />
-      <div>Appointments</div>
+      <Footer />
     </>
   );
 }

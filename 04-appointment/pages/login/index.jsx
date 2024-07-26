@@ -34,12 +34,16 @@ export default function LoginForm() {
       .post("/api/login", { username, password })
       .then((res) => {
         const role = res.data.role;
+        const userData = res.data; // Assuming the API response contains user data
+
+        localStorage.setItem("user", JSON.stringify(userData));
+
         setOpenSnackbar(true);
         setMessage(res.data.message);
         if (role === "Doctor") {
           router.push("/dashboard-doctor");
         } else if (role === "Patient") {
-          router.push("/dashboard-patient");
+          router.push("./");
         } else if (role === "Admin") {
           router.push("/dashboard-admin");
         }

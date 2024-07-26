@@ -1,0 +1,85 @@
+.footer {
+    background: linear-gradient(135deg, #2c3e6c 0%, #1e2a5f 50%, #0d1a39 100%);
+    padding: 40px 0;
+    color: #ffffff; /* Ensures text stands out against dark gradient */
+  }
+  
+  .footerSection {
+    padding: 20px;
+    margin: 0;
+  }
+  
+  .sectionTitle {
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ffffff; /* Adjust title color for better contrast */
+  }
+  
+  .sectionContent {
+    color: #d0d0d0; /* Light grey for better readability */
+  }
+  
+  .contactLink {
+    display: flex;
+    align-items: center;
+    color: #d0d0d0;
+    text-decoration: none;
+    font-size: 16px;
+  }
+  
+  .contactLink svg {
+    margin-right: 10px;
+    font-size: 20px;
+  }
+  
+  .socialIcons {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .icon {
+    color: #ffffff; /* White color for social icons */
+    font-size: 24px;
+    transition: color 0.3s ease; /* Smooth color transition on hover */
+  }
+  
+  .icon:hover {
+    color: #007bff; /* Hover effect for icons */
+  }
+  
+  .serviceCategory {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #ffffff; /* Adjust category color */
+  }
+  
+  .serviceList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    color: #d0d0d0; /* Light grey for service list */
+  }
+  
+  .serviceList li {
+    margin-bottom: 10px;
+  }
+  
+  .privacyLink {
+    color: #007bff; /* Blue color for privacy link */
+    text-decoration: none;
+  }
+  
+  .privacyLink:hover {
+    text-decoration: underline;
+  }
+  
+  .divider {
+    margin: 20px 0;
+    background-color: #ffffff; /* Light color for divider */
+  }
+  
+  .bottomSection {
+    padding: 20px;
+  }
+  

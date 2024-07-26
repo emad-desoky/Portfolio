@@ -77,3 +77,8 @@
     display: none; /* Hide auth buttons on extra small screens */
   }
 }
+.welcomeText {
+  margin-right: 16px; /* Adjust as needed */
+  font-size: 1rem; /* Adjust as needed */
+  color: #ffffff; /* Adjust as needed */
+}
