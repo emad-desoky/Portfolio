@@ -46,8 +46,12 @@ export default function PrimarySearchAppBar() {
             <Button color="inherit" className={styles.navButton}>
               Services
             </Button>
-            <Button color="inherit" className={styles.navButton}>
-              Special Offers
+            <Button
+              onClick={() => router.push("./our-services")}
+              color="inherit"
+              className={styles.navButton}
+            >
+              Our Services
             </Button>
             <Button color="inherit" className={styles.navButton}>
               Contact Us
