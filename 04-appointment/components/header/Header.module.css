@@ -232,14 +232,14 @@
 }
 
 .textContainer {
-  width: 90%; /* Adjust width to fit content */
-  max-width: 600px;
+  width: 150%; /* Adjust width to fit content */
+  max-width: 500px;
   
 }
 
 
 .visitUsTitle {
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: bold;
   margin-bottom: 20px;
 }
@@ -288,7 +288,7 @@
 }
 .mapContainer {
   width: 100%;
-  height: 450px;
+  height: 350px;
 }
 
 .visitUsSection {
