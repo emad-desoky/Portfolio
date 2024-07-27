@@ -62,5 +62,43 @@
     "procedure": "Scaling",
     "id": "98dfcdd8-0e7a-4134-b432-03fae1775311",
     "status": "Cancelled"
-  }
+  },
+  [
+    {
+      "id": "8a7c818d-ad5f-4f2e-a5f3-b2b90d9e3ba2",
+      "user": "Jane Doe",
+      "text": "Great service!",
+      "stars": 5
+    },
+    {
+      "id": "76140642-3d78-4eb6-a887-a4534dcd6d7c",
+      "user": "Jane Doe",
+      "text": "Great service!",
+      "stars": 5
+    },
+    {
+      "id": "0c87904f-abec-4eb5-b88b-722374455af0",
+      "user": "Jane Doe",
+      "text": "Great service!",
+      "stars": 5
+    },
+    {
+      "id": "8d778eaf-a79e-41c7-b54c-9ae20104b70b",
+      "user": "Jane Doe",
+      "text": "Great service!",
+      "stars": 5
+    },
+    {
+      "id": "74e915fc-d322-492f-83b7-973eb01edcad",
+      "user": "Jane Doe",
+      "text": "Great service!",
+      "stars": 5
+    },
+    {
+      "id": "4eace97b-6ddc-4800-9a6f-2cfda4953368",
+      "user": "Jane Doe",
+      "text": "Great service!",
+      "stars": 5
+    }
+  ]
 ]
