@@ -112,8 +112,8 @@ export default function RegistrationForm() {
                   <Select
                     value={role}
                     onChange={onRoleChange}
-                    label="Role"
-                    name="Role"
+                    label="role"
+                    name="role"
                   >
                     <MenuItem value="Patient">Patient</MenuItem>
                     <MenuItem value="Doctor">Doctor</MenuItem>
@@ -125,8 +125,8 @@ export default function RegistrationForm() {
                 {role === "Patient" && (
                   <>
                     <TextField
-                      name="patientUsername"
-                      label="Patient Username"
+                      name="username"
+                      label="username"
                       variant="outlined"
                       required
                       fullWidth

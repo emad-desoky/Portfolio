@@ -1,76 +1,40 @@
-import fs from "fs";
-import path from "path";
+import { firestore } from "../../firebase/clientApp"; // Adjust the path as needed
+import { v4 as uuidv4 } from "uuid"; // To generate unique IDs for new users
 
-const readFile = (filePath) => {
-  return new Promise((resolve, reject) => {
-    fs.readFile(filePath, "utf8", (err, data) => {
-      if (err) {
-        reject("Failed to read data");
-      } else {
-        resolve(JSON.parse(data));
-      }
-    });
-  });
-};
-
-const writeFile = (filePath, data) => {
-  return new Promise((resolve, reject) => {
-    fs.writeFile(filePath, JSON.stringify(data, null, 2), (err) => {
-      if (err) {
-        reject("Failed to write data");
-      } else {
-        resolve();
-      }
-    });
-  });
-};
+const collectionName = "users"; // Firestore collection name
 
 export default async function handler(req, res) {
-  const filePath = path.join(process.cwd(), "data", "users.json");
-
   if (req.method === "GET") {
     try {
-      const data = await readFile(filePath);
-      res.status(200).json(data);
+      const snapshot = await firestore.collection(collectionName).get();
+      const users = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+      res.status(200).json(users);
     } catch (error) {
       console.error("GET Error:", error);
       res.status(500).json({ error: "Failed to read data" });
     }
   } else if (req.method === "POST") {
-    let newElement;
     try {
-      newElement = req.body;
-    } catch (error) {
-      console.error("POST JSON Error:", error);
-      res.status(400).json({ error: "Invalid JSON" });
-      return;
-    }
-
-    try {
-      const data = await readFile(filePath);
-      data.push(newElement);
-      await writeFile(filePath, data);
+      const newElement = req.body;
+      newElement.id = uuidv4(); // Generate a unique ID for the new user
+      await firestore
+        .collection(collectionName)
+        .doc(newElement.id)
+        .set(newElement);
       res.status(201).json(newElement);
     } catch (error) {
       console.error("POST Error:", error);
       res.status(500).json({ error: "Failed to write data" });
     }
   } else if (req.method === "PUT") {
-    let updatedElement;
     try {
-      updatedElement = req.body;
-    } catch (error) {
-      console.error("PUT JSON Error:", error);
-      res.status(400).json({ error: "Invalid JSON" });
-      return;
-    }
-
-    try {
-      const data = await readFile(filePath);
-      const index = data.findIndex((item) => item.id === updatedElement.id);
-      if (index !== -1) {
-        data[index] = updatedElement;
-        await writeFile(filePath, data);
+      const updatedElement = req.body;
+      const docRef = firestore
+        .collection(collectionName)
+        .doc(updatedElement.id);
+      const doc = await docRef.get();
+      if (doc.exists) {
+        await docRef.update(updatedElement);
         res.status(200).json(updatedElement);
       } else {
         res.status(404).json({ error: "Element not found" });
@@ -82,13 +46,13 @@ export default async function handler(req, res) {
   } else if (req.method === "DELETE") {
     const { id } = req.query;
     try {
-      const data = await readFile(filePath);
-      const newData = data.filter((item) => item.id !== id);
-      if (data.length === newData.length) {
-        res.status(404).json({ error: "Element not found" });
-      } else {
-        await writeFile(filePath, newData);
+      const docRef = firestore.collection(collectionName).doc(id);
+      const doc = await docRef.get();
+      if (doc.exists) {
+        await docRef.delete();
         res.status(200).json({ message: "Element deleted successfully" });
+      } else {
+        res.status(404).json({ error: "Element not found" });
       }
     } catch (error) {
       console.error("DELETE Error:", error);

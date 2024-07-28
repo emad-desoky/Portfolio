@@ -30,12 +30,13 @@ export default function AppointmentForm() {
       setErrorMessage("Please login or register to submit the form.");
       return;
     }
+    const user = JSON.parse(localStorage.getItem("user"));
 
     const formData = new FormData(e.target);
     const appointment = Object.fromEntries(formData.entries());
     appointment.id = v4();
     appointment.status = "scheduled";
-
+    appointment.username = user.username;
     console.log("Form Data Submitted:", appointment);
 
     axios
