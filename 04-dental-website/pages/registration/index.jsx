@@ -79,7 +79,6 @@ export default function RegistrationForm() {
     const formData = new FormData(e.target);
     const users = Object.fromEntries(formData.entries());
     users.id = v4();
-
     axios
       .post(`${baseURL}/api/users`, users)
       .then((res) => {
