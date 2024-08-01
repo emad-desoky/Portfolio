@@ -88,6 +88,9 @@
   .authButtons {
     display: none; /* Hide auth buttons on extra small screens */
   }
+  .rightItems {
+    display: none;
+   }
   
   .logo img {
     width: 50px; /* Adjust logo size */
