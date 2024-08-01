@@ -5,12 +5,16 @@ import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
 import styles from "./PrimarySearchAppBar.module.css";
 import { useRouter } from "next/router";
 import { Typography } from "@mui/material";
 
 export default function PrimarySearchAppBar() {
   const [user, setUser] = useState(null);
+  const [anchorEl, setAnchorEl] = useState(null); // For menu anchor
+  const open = Boolean(anchorEl);
   const router = useRouter();
 
   useEffect(() => {
@@ -27,6 +31,19 @@ export default function PrimarySearchAppBar() {
     router.push("./login"); // Redirect to login page after logout
   };
 
+  const handleMenuClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleNavigation = (path) => {
+    router.push(path);
+    handleMenuClose();
+  };
+
   return (
     <AppBar className={styles.appBar} position="fixed">
       <Toolbar className={styles.toolbar}>
@@ -40,6 +57,16 @@ export default function PrimarySearchAppBar() {
             onClick={() => router.push("./")}
           />
         </Box>
+
+        {/* Menu icon for small screens */}
+        <IconButton
+          edge="start"
+          className={styles.menuIcon}
+          aria-label="menu"
+          onClick={handleMenuClick}
+        >
+          <MenuIcon />
+        </IconButton>
 
         {/* Container for navigation items and auth buttons */}
         <Box className={styles.rightItems}>
@@ -61,7 +88,6 @@ export default function PrimarySearchAppBar() {
             <Button color="inherit" className={styles.navButton}>
               About Us
             </Button>
-
             <Button
               onClick={() => router.push("./our-services")}
               color="inherit"
@@ -111,9 +137,46 @@ export default function PrimarySearchAppBar() {
               </>
             )}
           </Box>
-
-          {/* Menu icon for small screens */}
         </Box>
+
+        {/* Menu for small screens */}
+        <Menu
+          anchorEl={anchorEl}
+          open={open}
+          onClose={handleMenuClose}
+          className={styles.menu}
+        >
+          <MenuItem onClick={() => handleNavigation("./appointments")}>
+            BOOK NOW
+          </MenuItem>
+          <MenuItem onClick={() => handleNavigation("./our-doctors")}>
+            Our Doctors
+          </MenuItem>
+          <MenuItem onClick={() => handleNavigation("./location")}>
+            Location
+          </MenuItem>
+          <MenuItem onClick={() => handleNavigation("./about-us")}>
+            About Us
+          </MenuItem>
+          <MenuItem onClick={() => handleNavigation("./our-services")}>
+            Our Services
+          </MenuItem>
+          <MenuItem onClick={() => handleNavigation("./contact-us")}>
+            Contact Us
+          </MenuItem>
+          {user ? (
+            <MenuItem onClick={handleLogout}>Logout</MenuItem>
+          ) : (
+            <>
+              <MenuItem onClick={() => handleNavigation("./registration")}>
+                Registration
+              </MenuItem>
+              <MenuItem onClick={() => handleNavigation("./login")}>
+                Login
+              </MenuItem>
+            </>
+          )}
+        </Menu>
       </Toolbar>
     </AppBar>
   );

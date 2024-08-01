@@ -22,6 +22,7 @@ export default function ClinicNavBar() {
           justifyContent: "center",
           alignItems: "center",
           mt: 4,
+          padding: { xs: "0 10px", sm: "0 20px" }, // Adjust padding for responsiveness
         }}
       >
         <Typography
@@ -38,6 +39,7 @@ export default function ClinicNavBar() {
             "&:hover": {
               color: "#ffeb3b", // Highlight color on hover
             },
+            fontSize: { xs: "1.2rem", sm: "1.5rem" }, // Adjust font size for responsiveness
           }}
         >
           ELM

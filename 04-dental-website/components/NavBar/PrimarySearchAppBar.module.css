@@ -1,3 +1,4 @@
+/* Existing styles */
 .appBar {
   background: linear-gradient(135deg, #007acc 0%, #005f9e 50%, #003d66 100%);
   box-shadow: 0 4px 12px rgba(0, 122, 204, 0.3); /* Enhanced shadow */
@@ -62,6 +63,17 @@
   color: white;
 }
 
+/* New styles for menu */
+.menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu .MuiMenuItem-root {
+  font-size: 1rem; /* Adjust font size for menu items */
+}
+
+/* Media Queries */
 @media (max-width: 768px) {
   .navItems {
     display: none; /* Hide navigation items on smaller screens */
@@ -76,9 +88,19 @@
   .authButtons {
     display: none; /* Hide auth buttons on extra small screens */
   }
-}
-.welcomeText {
-  margin-right: 16px; /* Adjust as needed */
-  font-size: 1rem; /* Adjust as needed */
-  color: #ffffff; /* Adjust as needed */
+  
+  .logo img {
+    width: 50px; /* Adjust logo size */
+    height: 50px;
+  }
+  
+  .rightItems {
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .navButton, .authButton {
+    font-size: 0.875rem; /* Adjust font size for buttons */
+  }
 }
