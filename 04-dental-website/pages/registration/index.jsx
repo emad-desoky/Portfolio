@@ -20,6 +20,7 @@ import {
 import styles from "./RegistrationForm.module.css";
 import { useRouter } from "next/router";
 import ClinicNavBar from "@/components/NavBar/ClinicNavBar";
+import Footer from "@/components/footer/Footer";
 
 const imageDetails = [
   {
@@ -314,6 +315,7 @@ export default function RegistrationForm() {
           </Alert>
         </Snackbar>
       </div>
+      <Footer />
     </>
   );
 }

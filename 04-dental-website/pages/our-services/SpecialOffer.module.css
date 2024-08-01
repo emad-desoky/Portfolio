@@ -20,6 +20,8 @@
     text-align: center;
     position: relative; /* Allows for positioning of the glossy overlay */
     transform: scale(1);
+    width: 100%; /* Ensures cards take full width of their container */
+    max-width: 300px; /* Sets a max width for cards */
 }
 
 .card:hover {
@@ -40,8 +42,6 @@
     transition: background 0.3s ease-in-out;
 }
 
-
-
 /* Styling for card images */
 .card img {
     width: 100%;
@@ -52,7 +52,7 @@
 
 /* Title styling for cards */
 .title {
-    font-size: 1.75rem;
+    font-size: 1.5rem; /* Adjusted for better responsiveness */
     color: #333;
     margin: 15px 0;
     font-weight: 600; /* Bold title */
@@ -62,7 +62,7 @@
 .description {
     color: #666;
     margin-bottom: 20px;
-    font-size: 1rem; /* Adjusted font size */
+    font-size: 0.875rem; /* Adjusted for better responsiveness */
 }
 
 /* Container for details section */
@@ -82,6 +82,7 @@
     margin-bottom: 30px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    width: 100%; /* Ensures details sections take full width of their container */
 }
 
 .detailsSection:hover {
@@ -97,7 +98,7 @@
 
 /* Title styling for detail sections */
 .detailsTitle {
-    font-size: 2.25rem;
+    font-size: 2rem; /* Adjusted for better responsiveness */
     color: #333;
     margin-bottom: 15px;
     font-weight: 700; /* Bold title */
@@ -106,7 +107,7 @@
 /* Description styling for detail sections */
 .detailsDescription {
     color: #666;
-    font-size: 1.125rem; /* Slightly larger font size */
+    font-size: 1rem; /* Adjusted for better responsiveness */
 }
 
 /* Styling for video container */
@@ -115,6 +116,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%; /* Ensures video container takes full width */
 }
 
 /* Styling for video element */
@@ -132,4 +134,42 @@
 /* Button styling for cards */
 .cardButton {
     margin-top: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .card {
+        max-width: 100%; /* Cards take full width on smaller screens */
+    }
+
+    .detailsSection {
+        flex-direction: column; /* Stack details section items vertically */
+    }
+
+    .infoContainer,
+    .videoContainer {
+        flex: 1 1 100%; /* Ensure both containers take full width on small screens */
+    }
+
+    .title,
+    .detailsTitle {
+        font-size: 1.25rem; /* Adjust font size for smaller screens */
+    }
+
+    .description,
+    .detailsDescription {
+        font-size: 0.875rem; /* Adjust font size for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .title,
+    .detailsTitle {
+        font-size: 1rem; /* Further adjust font size for very small screens */
+    }
+
+    .description,
+    .detailsDescription {
+        font-size: 0.75rem; /* Further adjust font size for very small screens */
+    }
 }

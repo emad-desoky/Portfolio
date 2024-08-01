@@ -7,6 +7,7 @@
   height: 100vh; /* Full viewport height */
   width: 100vw; /* Full viewport width */
   overflow: hidden; /* Ensure no scrollbars appear */
+  animation: fadeIn 1s ease-in; /* Fade-in animation for the page */
 }
 
 .formContainer {
@@ -14,6 +15,7 @@
   justify-content: center;
   align-items: center;
   padding: 2rem;
+  animation: slideIn 0.5s ease-out; /* Slide-in animation for form container */
 }
 
 .form {
@@ -26,14 +28,15 @@
   max-height: 80vh; /* Limit form height */
   overflow-y: auto; /* Enable scrolling if content exceeds height */
   transition: transform 0.3s ease-in-out;
+  animation: fadeInUp 0.5s ease-in; /* Fade-in and slide-up animation for the form */
 }
-
 
 .carouselContainer {
   flex: 1; /* Take up remaining space */
   display: flex; /* Use flexbox for layout */
   justify-content: center; /* Center horizontally */
   align-items: center; /* Center vertically */
+  animation: fadeIn 1s ease-in; /* Fade-in animation for carousel container */
 }
 
 .carouselCard {
@@ -43,6 +46,7 @@
   position: relative; /* Position relative for absolute children */
   transition: opacity 0.5s ease-in-out; /* Smooth transition for opacity */
   opacity: 1; /* Initial opacity */
+  animation: fadeInUp 0.5s ease-in; /* Fade-in and slide-up animation for carousel card */
 }
 
 .carouselImage {
@@ -52,7 +56,7 @@
   opacity: 1; /* Initial opacity */
 }
 .carouselImage.fadeOut {
-  opacity: .8; /* Fade out effect */
+  opacity: 0.5; /* Fade out effect */
 }
 
 .carouselImage.fadeIn {
@@ -68,6 +72,50 @@
   color: #fff; /* White text color */
   padding: 0.5rem; /* Padding around the text */
   text-align: center; /* Center align text */
+  animation: slideUp 0.5s ease-out; /* Slide-up animation for text */
+}
+
+/* Keyframe animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 /* TypographyStyles.module.css */
@@ -79,6 +127,7 @@
   position: relative;
   display: inline-block;
   overflow: hidden;
+  animation: fadeIn 1s ease-in; /* Fade-in animation for title */
 }
 
 .title::before {
@@ -101,4 +150,3 @@
   position: relative;
   z-index: 2;
 }
-
