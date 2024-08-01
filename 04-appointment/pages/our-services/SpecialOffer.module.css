@@ -1,0 +1,135 @@
+/* SpecialOffer.module.css */
+
+/* Container for the services section with a gradient background */
+.servicesContainer {
+    background: linear-gradient(to right, #e0f7fa, #b2ebf2);
+    padding: 40px 0;
+}
+
+/* Styling for each card with transition effects and glossy overlay */
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+    background: #030000;
+    text-align: center;
+    position: relative; /* Allows for positioning of the glossy overlay */
+    transform: scale(1);
+}
+
+.card:hover {
+    transform: scale(1.03); /* Slight zoom effect on hover */
+}
+
+/* Glossy overlay effect applied to the card */
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(1, 30, 30, 0); /* Cool mint with a gentle gloss */
+    pointer-events: none; /* Ensures overlay does not interfere with interactions */
+    z-index: 1; /* Places overlay above card content */
+    transition: background 0.3s ease-in-out;
+}
+
+
+
+/* Styling for card images */
+.card img {
+    width: 100%;
+    height: auto;
+    border-bottom: 4px solid #ddd; /* Thicker border below image */
+    border-radius: 12px 12px 0 0; /* Rounded top corners */
+}
+
+/* Title styling for cards */
+.title {
+    font-size: 1.75rem;
+    color: #333;
+    margin: 15px 0;
+    font-weight: 600; /* Bold title */
+}
+
+/* Description styling for cards */
+.description {
+    color: #666;
+    margin-bottom: 20px;
+    font-size: 1rem; /* Adjusted font size */
+}
+
+/* Container for details section */
+.detailsContainer {
+    background: #f7f7f7;
+    padding: 40px 0;
+}
+
+/* Styling for details section with transition effects */
+.detailsSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.detailsSection:hover {
+    transform: scale(1.02); /* Slight zoom effect on hover */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
+}
+
+/* Container for detail information */
+.infoContainer {
+    padding: 30px;
+    text-align: center;
+}
+
+/* Title styling for detail sections */
+.detailsTitle {
+    font-size: 2.25rem;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: 700; /* Bold title */
+}
+
+/* Description styling for detail sections */
+.detailsDescription {
+    color: #666;
+    font-size: 1.125rem; /* Slightly larger font size */
+}
+
+/* Styling for video container */
+.videoContainer {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Styling for video element */
+.video {
+    width: 100%;
+    height: auto;
+    border-radius: 8px; /* Rounded corners for video */
+    transition: transform 0.3s ease-in-out;
+}
+
+.video:hover {
+    transform: scale(1.02); /* Slight zoom effect on hover */
+}
+
+/* Button styling for cards */
+.cardButton {
+    margin-top: 20px;
+}

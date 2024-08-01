@@ -48,12 +48,12 @@
     position: absolute;
     width: 100vw; /* Ensure it takes up full viewport width */
     max-width: 120vw; /* Allows image to be wider if needed */
-    height: 40vw; /* Adjust height based on width */
+    height: 70vw; /* Adjust height based on width */
     top: 0; /* Position at the top of the viewport */
     left: 0; /* Align to the left */
     object-fit: cover; /* Maintain aspect ratio and fit within container */
     transition: opacity 1s ease-in-out; /* Smooth image transitions */
-    filter: blur(4px); /* Apply blur effect */
+    filter: blur(0px); /* Apply blur effect */
     z-index: 0; /* Make sure the image is behind other elements */
 }
 
