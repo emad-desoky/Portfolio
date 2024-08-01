@@ -38,6 +38,11 @@ const imageDetails = [
   // Add more image and text pairs as needed
 ];
 
+const baseURL =
+  process.env.NODE_ENV === "production"
+    ? "https://your-vercel-domain.vercel.app"
+    : "http://localhost:3000";
+
 export default function RegistrationForm() {
   const [role, setRole] = useState("");
   const [loading, setLoading] = useState(false);
@@ -76,21 +81,25 @@ export default function RegistrationForm() {
     users.id = v4();
 
     axios
-      .post("/api/users", users)
+      .post(`${baseURL}/api/users`, users)
       .then((res) => {
         setSnackbarMessage("Registration successful!");
         setSnackbarSeverity("success");
         setOpenSnackbar(true);
         setLoading(false);
+        // Redirect to login page after 2 seconds
+        setTimeout(() => {
+          router.push("/login");
+        }, 2000);
       })
       .catch((e) => {
+        console.error("Error details:", e); // Log the full error object
         setSnackbarMessage(`Error: ${e.response?.data || "Unknown error"}`);
         setSnackbarSeverity("error");
         setOpenSnackbar(true);
         setLoading(false);
       });
   };
-
   return (
     <>
       <ClinicNavBar />
