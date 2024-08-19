@@ -1,7 +1,8 @@
-import { db } from "../../firebase/clientApp"; // Adjust the path as needed
+import { firestore } from "../../firebase/clientApp"; // Adjust the path as needed
+import firebase from "firebase/compat/app";
 
 export default async function handler(req, res) {
-  const appointmentsRef = db.collection("appointments");
+  const appointmentsRef = firestore.collection("appointments");
 
   if (req.method === "GET") {
     try {

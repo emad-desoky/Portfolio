@@ -1,12 +1,12 @@
-import { db } from "@/firebase/clientApp";
-import { v4 } from "uuid";
+import { firestore } from "../../firebase/clientApp"; // Adjust the path as needed
+import { v4 as uuidv4 } from "uuid"; // To generate unique IDs for new users
 
 const collectionName = "users"; // Firestore collection name
 
 export default async function handler(req, res) {
   if (req.method === "GET") {
     try {
-      const snapshot = await db.collection(collectionName).get();
+      const snapshot = await firestore.collection(collectionName).get();
       const users = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
       res.status(200).json(users);
     } catch (error) {
@@ -16,8 +16,11 @@ export default async function handler(req, res) {
   } else if (req.method === "POST") {
     try {
       const newElement = req.body;
-      newElement.id = v4(); // Generate a unique ID for the new user
-      await db.collection(collectionName).doc(newElement.id).set(newElement);
+      newElement.id = uuidv4(); // Generate a unique ID for the new user
+      await firestore
+        .collection(collectionName)
+        .doc(newElement.id)
+        .set(newElement);
       res.status(201).json(newElement);
     } catch (error) {
       console.error("POST Error:", error);
@@ -26,7 +29,9 @@ export default async function handler(req, res) {
   } else if (req.method === "PUT") {
     try {
       const updatedElement = req.body;
-      const docRef = db.collection(collectionName).doc(updatedElement.id);
+      const docRef = firestore
+        .collection(collectionName)
+        .doc(updatedElement.id);
       const doc = await docRef.get();
       if (doc.exists) {
         await docRef.update(updatedElement);
@@ -41,7 +46,7 @@ export default async function handler(req, res) {
   } else if (req.method === "DELETE") {
     const { id } = req.query;
     try {
-      const docRef = db.collection(collectionName).doc(id);
+      const docRef = firestore.collection(collectionName).doc(id);
       const doc = await docRef.get();
       if (doc.exists) {
         await docRef.delete();
