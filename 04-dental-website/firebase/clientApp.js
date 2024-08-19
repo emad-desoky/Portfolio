@@ -1,7 +1,7 @@
-import firebase from "firebase/compat/app";
-import "firebase/compat/firestore";
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
 
-const clientCredentials = {
+const firebaseConfig = {
   apiKey: "kAIzaSyCdcGBP99aiCKjhaSVEePxVdtjGck1cxY",
   authDomain: "dental-website-cf2a5.firebaseapp.com",
   projectId: "dental-website-cf2a5",
@@ -10,10 +10,7 @@ const clientCredentials = {
   appId: "1:582437244163:web:c85d4afa071a0045c2ad36",
 };
 
-if (!firebase.apps.length) {
-  firebase.initializeApp(clientCredentials);
-}
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
-const firestore = firebase.firestore();
-
-export { firestore };
+export { db };
