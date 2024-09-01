@@ -1,12 +1,6 @@
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
 
-if (!firebase.apps.length) {
-  firebase.initializeApp(clientCredentials);
-}
-
-const firestore = firebase.firestore();
-
 export default async function handler(req, res) {
   if (req.method === "POST") {
     const { username, password } = req.body;
